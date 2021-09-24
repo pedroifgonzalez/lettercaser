@@ -7,13 +7,16 @@ class Application(tk.Frame):
         super().__init__(master)
         self.master = master
         self.master.resizable(False, False)
-        self.configure(background='')
+        self.master.geometry("-100-100")
+        self.master.attributes('-topmost',True)
         self.pack()
         self.create_buttons()
     
     def create_buttons(self):
         common_options = dict(
-            activebackground="pink",
+            borderwidth=0,
+            background="#f4d7d7",
+            activebackground="#e9afaf",
             anchor="w"
         )
 
