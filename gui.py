@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+"""
+    App GUI module 
+"""
 import tkinter as tk
 import utils
 
