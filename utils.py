@@ -6,6 +6,7 @@
         functions_caller
         concatenate_functions_calls
 """
+import logging
 import pyperclip
 import functools
 from typing import Callable
@@ -15,7 +16,10 @@ import textconverter
 def functions_caller(*functions):
     """Calls every function passed as argument"""
     for function in functions:
+        try:
         function()
+        except TypeError as e:
+            logging.error(e)
 
 def concatenate_functions_calls(*functions_calls):
     """Function with the only purpose of joining function calls
