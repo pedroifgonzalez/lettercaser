@@ -28,6 +28,7 @@ def convert_clipoboard_content(function: Callable):
     except Exception as e:
         raise e
     pyperclip.copy(converted_clipboard_content)
+    return True
 
 upper_converter = functools.partial(convert_clipoboard_content, textconverter.to_uppercase)
 lower_converter = functools.partial(convert_clipoboard_content, textconverter.to_lowercase)
