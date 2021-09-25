@@ -1,7 +1,10 @@
 """
     Module for integrate clipboard management and text conversion
 
-    Available function: convert_clipoboard_content
+    Available functions: 
+        convert_clipoboard_content
+        functions_caller
+        concatenate_functions_calls
 """
 import pyperclip
 import functools
