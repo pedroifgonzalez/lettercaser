@@ -10,6 +10,7 @@ from typing import Callable
 import textconverter
 
 def functions_caller(*functions):
+    """Calls every function passed as argument"""
     for function in functions:
         function()
 
