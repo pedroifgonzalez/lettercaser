@@ -7,8 +7,8 @@
         concatenate_functions_calls
 """
 import logging
-import pyperclip
 import functools
+import pyperclip
 from typing import Callable
 
 import textconverter
@@ -17,7 +17,7 @@ def functions_caller(*functions):
     """Calls every function passed as argument"""
     for function in functions:
         try:
-        function()
+            function()
         except TypeError as e:
             logging.error(e)
 
