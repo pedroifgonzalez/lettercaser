@@ -28,7 +28,7 @@ def concatenate_functions_calls(*functions_calls):
     """
     return all(functions_calls)
 
-def convert_clipoboard_content(function: Callable):
+def convert_clipboard_content(function: Callable):
     """Retrieves clipboard content, converts it and updates it"""
     original_clipboard_content = pyperclip.paste()
     try:
@@ -38,8 +38,8 @@ def convert_clipoboard_content(function: Callable):
     pyperclip.copy(converted_clipboard_content)
     return True
 
-upper_converter = functools.partial(convert_clipoboard_content, textconverter.to_uppercase)
-lower_converter = functools.partial(convert_clipoboard_content, textconverter.to_lowercase)
-title_converter = functools.partial(convert_clipoboard_content, textconverter.to_title_case)
-capitalizer_converter = functools.partial(convert_clipoboard_content, textconverter.capitalize)
-capitalize_after_one_periodconverter = functools.partial(convert_clipoboard_content, textconverter.capitalize_after_one_period)
+upper_converter = functools.partial(convert_clipboard_content, textconverter.to_uppercase)
+lower_converter = functools.partial(convert_clipboard_content, textconverter.to_lowercase)
+title_converter = functools.partial(convert_clipboard_content, textconverter.to_title_case)
+capitalizer_converter = functools.partial(convert_clipboard_content, textconverter.capitalize)
+capitalize_after_one_periodconverter = functools.partial(convert_clipboard_content, textconverter.capitalize_after_one_period)
