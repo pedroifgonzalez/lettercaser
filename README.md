@@ -14,7 +14,6 @@ In order to make the app easier and more intuitive to use, the plan is to look h
 
 ## This is not the currently GUI app
 
-* * *
 ![alt text](https://github.com/pedroifgonzalez/textconverter/blob/master/design/widget_version_previews/select_text_preview.png)
 * * *
 ![alt text](https://github.com/pedroifgonzalez/textconverter/blob/master/design/widget_version_previews/point_option_preview.png)
