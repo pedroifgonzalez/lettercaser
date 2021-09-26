@@ -18,11 +18,14 @@ import textconverter
 
 def get_previous_selected_text():
     """Returns the previous selected text by the user"""
-    pass
+    global previous_selected_text
+    return previous_selected_text
 
 def get_selected_text():
     """Returns the output of xsel"""
     return subprocess.check_output("xsel", universal_newlines=True)
+
+previous_selected_text = get_selected_text()
 
 def is_selected_text_copied():
     """Returns True if the selected text by the user is currently at the clipboard"""
@@ -36,6 +39,8 @@ def detect_selected_text_changed():
     previous_content = get_previous_selected_text()
     current_content = get_selected_text()
     if previous_content != current_content:
+        global previous_selected_text
+        previous_selected_text = current_content
         return True
 
 def functions_caller(*functions):
