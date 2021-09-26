@@ -1,5 +1,5 @@
 """
-    Module for integrate clipboard management and text conversion
+    Module for integrating clipboard management and text conversion
 
     Available functions: 
         get_selected_text
