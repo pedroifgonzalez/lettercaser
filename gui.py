@@ -19,21 +19,35 @@ class Application(tk.Frame):
         self.master.attributes("-topmost", True)
         self.master.wm_withdraw()
         self.master.overrideredirect(True)
-        self.master.bind("<Enter>", lambda *ignore: self.set_status(True))
+        self.master.bind("<Motion>", lambda *ignore: self.set_status(True))
         self.master.bind("<Leave>", lambda *ignore: self.set_status(False))
         self.pack()
         self.create_buttons()
-        self.start_notification_thread()
-        self.start_selected_text_thread()
-        self.start_hide_gui_thread()
+        self.start_thread()
 
     def set_status(self, status: bool):
         self.status = status
 
-    def start_notification_thread(self):
-        def notificate_conversion_success():
+    def start_thread(self):
+        def to_check():
             while True:
+                # to hide the app
+                status = self.status
+                if status is False:
+                    time.sleep(1)
+                    if status == self.status:
+                        self.master.wm_withdraw()
+                        self.status = True
                 
+                # detect change of selected text
+                if utils.detect_selected_text_changed():
+                    cursor_position = utils.get_mouse_cursor_position()
+                    app_wsize = utils.Size(250, 35)
+                    x, y = utils.get_cursor_position_to_set(app_wsize, cursor_position)
+                    self.master.geometry(f"+{x}+{y}")
+                    self.master.wm_deiconify()
+
+                # show success
                 clicked_button = self.clicked_button
                 conversion_status = self.conversion_status
 
@@ -44,30 +58,8 @@ class Application(tk.Frame):
                     clicked_button['text'] = original_text
                     self.clicked_button = None
                     self.conversion_status = False
-        thread = threading.Thread(target=notificate_conversion_success, daemon=True)
-        thread.start()
-    
-    def start_selected_text_thread(self):
-        def thread_selected_text_function():
-            while True:
-                if utils.detect_selected_text_changed():
-                    cursor_position = utils.get_mouse_cursor_position()
-                    app_wsize = utils.Size(250, 35)
-                    x, y = utils.get_cursor_position_to_set(app_wsize, cursor_position)
-                    self.master.geometry(f"+{x}+{y}")
-                    self.master.wm_deiconify()
 
-        thread = threading.Thread(target=thread_selected_text_function, daemon=True)
-        thread.start()
-    
-    def start_hide_gui_thread(self):
-        def hide_gui_thread():
-            while True:
-                status = self.status
-                time.sleep(3)
-                if status is False:
-                    self.master.wm_withdraw()
-        thread = threading.Thread(target=hide_gui_thread, daemon=True)
+        thread = threading.Thread(target=to_check, daemon=True)
         thread.start()
 
     def set_clicked_button(self, button_name):
