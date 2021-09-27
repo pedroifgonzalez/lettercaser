@@ -1,5 +1,5 @@
 """
-    Module for integrating clipboard management and text conversion
+    Module for integrating clipboard management, text conversion and handling mouse events.
 
     Available functions: 
         get_selected_text
@@ -9,12 +9,41 @@
         concatenate_functions_calls
 """
 import subprocess
+import collections
 import logging
 import functools
 import pyperclip
+import pyautogui
 from typing import Callable
 
 import textconverter
+
+Size = collections.namedtuple("Size", "width height")
+Point = collections.namedtuple("Point", "x y")
+
+def get_cursor_position_to_set(app_wsize: Size, cursor_position: Point, distance_from_cursor: Point = Point(x=20,y=50)):
+    x_required_distance = app_wsize.width + distance_from_cursor.x
+    y_required_distance = app_wsize.height + distance_from_cursor.y
+
+    x_position = cursor_position.x
+    y_position = cursor_position.y
+
+    if cursor_position.x + x_required_distance > pyautogui.size().width:
+        x_position -= x_required_distance
+    else:
+        x_position += distance_from_cursor.x
+
+    if  cursor_position.y - y_required_distance < 0:
+        y_position += distance_from_cursor.y
+    else:
+        y_position -= distance_from_cursor.y
+
+    return Point(x_position, y_position) 
+    
+
+def get_mouse_cursor_position():
+    """Returns mouse cursor position"""
+    return pyautogui.position()
 
 def get_previous_selected_text():
     """Returns the previous selected text by the user"""
