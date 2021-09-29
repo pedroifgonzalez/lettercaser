@@ -87,8 +87,17 @@ def concatenate_functions_calls(*functions_calls):
     """
     return all(functions_calls)
 
-def convert_clipboard_content(function: Callable):
-    """Retrieves clipboard content, converts it and updates it"""
+def convert_clipboard_content(function: Callable, selected_text=True):
+    """Retrieves clipboard content, converts it and updates it
+    
+    arguments:
+
+        function: function to apply to clipboard's content
+
+        selected_text: flag to copy or not from the selected text by the user
+    """
+    if selected_text:
+        pyperclip.copy(get_selected_text())
     original_clipboard_content = pyperclip.paste()
     try:
         converted_clipboard_content = function(original_clipboard_content)
