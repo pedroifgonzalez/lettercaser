@@ -1,4 +1,4 @@
-# Select your text and letter case it!
+# Select a text and letter case it!
 
 A simple widget app that provides some shortcuts of common letter cases:
 
