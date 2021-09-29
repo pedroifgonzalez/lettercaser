@@ -17,11 +17,6 @@ class Application(tk.Frame):
         self.status = True
         self.xposition = None
         self.yposition = None
-        self.uppercase_button_image = tk.PhotoImage(file=utils.get_button_image_path('uppercase_button_image'))
-        self.lowercase_button_image = tk.PhotoImage(file=utils.get_button_image_path('lowercase_button_image'))
-        self.title_button_image = tk.PhotoImage(file=utils.get_button_image_path('title_button_image'))
-        self.capitalize_button_image = tk.PhotoImage(file=utils.get_button_image_path('capitalize_button_image'))
-        self.after_period_capitalize_button_image = tk.PhotoImage(file=utils.get_button_image_path('after_period_capitalize_button_image'))
         self.master.resizable(False, False)
         self.master.attributes("-topmost", True)
         self.master.wm_withdraw()
@@ -68,18 +63,6 @@ class Application(tk.Frame):
                     self.yposition = y
                     self.master.wm_deiconify()
 
-                # show success
-                clicked_button = self.clicked_button
-                conversion_status = self.conversion_status
-
-                if clicked_button and conversion_status:
-                    original_text = clicked_button['text']
-                    clicked_button['text'] = "OK"
-                    time.sleep(1)
-                    clicked_button['text'] = original_text
-                    self.clicked_button = None
-                    self.conversion_status = False
-
         thread = threading.Thread(target=to_check, daemon=True)
         thread.start()
 
@@ -92,41 +75,43 @@ class Application(tk.Frame):
 
     def create_buttons(self):
         common_options = dict(
-            borderwidth=0, 
-            anchor="w"
+            borderwidth=0,
+            anchor="w",
+            background="#f4d7d7",
+            activebackground="#e9afaf"
         )
 
         self.title_button = tk.Button(
             self,
-            image=self.title_button_image,
+            text="AbC",
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.title_converter), 
                 self.set_clicked_button("title_button"), utils.call_to_paste()),
             **common_options
         )
         self.after_period_capitalize_button = tk.Button(
             self,
-            image=self.after_period_capitalize_button_image,
+            text="Ab.C",
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.capitalize_after_one_periodconverter),
                 self.set_clicked_button("after_period_capitalize_button"), utils.call_to_paste()),
             **common_options
         )
         self.uppercase_button = tk.Button(
             self,
-            image=self.uppercase_button_image,
+            text="A",
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.upper_converter), 
                 self.set_clicked_button("uppercase_button"), utils.call_to_paste()),
             **common_options
         )
         self.lowercase_button = tk.Button(
             self,
-            image=self.lowercase_button_image,
+            text="a",
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.lower_converter),
                 self.set_clicked_button("lowercase_button"), utils.call_to_paste()),
             **common_options
         )
         self.capitalize_button = tk.Button(
             self,
-            image=self.capitalize_button_image,
+            text="Ab",
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.capitalizer_converter),
                 self.set_clicked_button("capitalize_button"), utils.call_to_paste()),
             **common_options
@@ -135,7 +120,7 @@ class Application(tk.Frame):
             self,
             text="X",
             command=self.master.destroy,
-            **common_options
+            activebackground="#fd5454"
         )
         
         self.close_button.pack(side="right")
