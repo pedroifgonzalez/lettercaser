@@ -1,12 +1,17 @@
 """
     Module for integrating clipboard management, text conversion and handling mouse events.
 
-    Available functions: 
+    Available functions:
+        get_cursor_position_to_set
+        get_mouse_cursor_position
+        get_previous_selected_text
         get_selected_text
         is_selected_text_copied
-        convert_clipoboard_content
+        detect_selected_text_changed
         functions_caller
         concatenate_functions_calls
+        convert_clipoboard_content
+        call_to_paste
 """
 import os
 import subprocess
