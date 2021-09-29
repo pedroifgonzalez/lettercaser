@@ -22,9 +22,20 @@ import textconverter
 Size = collections.namedtuple("Size", "width height")
 Point = collections.namedtuple("Point", "x y")
 
-def get_cursor_position_to_set(app_wsize: Size, cursor_position: Point, distance_from_cursor: Point = Point(x=20,y=50)):
-    x_required_distance = app_wsize.width + distance_from_cursor.x
-    y_required_distance = app_wsize.height + distance_from_cursor.y
+def get_cursor_position_to_set(app_wsize: Size, cursor_position: Point, distance_from_cursor: Size = Size(width=20, height=50)):
+    """Calculate and returns the new x and y positions for setting the cursor
+
+    Args:
+        app_wsize (Size): app window size
+        cursor_position (Point): current cursor x and y positions
+        distance_from_cursor (Point, optional): distance desired to separate the app from ther cursor.
+                                                Defaults to Point(x=20,y=50).
+
+    Returns:
+        [Point]: coordinates for setting the cursor
+    """
+    x_required_distance = app_wsize.width + distance_from_cursor.width
+    y_required_distance = app_wsize.height + distance_from_cursor.height
 
     x_position = cursor_position.x
     y_position = cursor_position.y
@@ -32,12 +43,12 @@ def get_cursor_position_to_set(app_wsize: Size, cursor_position: Point, distance
     if cursor_position.x + x_required_distance > pyautogui.size().width:
         x_position -= x_required_distance
     else:
-        x_position += distance_from_cursor.x
+        x_position += distance_from_cursor.width
 
     if  cursor_position.y - y_required_distance < 0:
-        y_position += distance_from_cursor.y
+        y_position += distance_from_cursor.height
     else:
-        y_position -= distance_from_cursor.y
+        y_position -= distance_from_cursor.height
 
     return Point(x_position, y_position) 
     
