@@ -131,7 +131,14 @@ class Application(tk.Frame):
                 self.set_clicked_button("capitalize_button"), utils.call_to_paste()),
             **common_options
         )
+        self.close_button = tk.Button(
+            self,
+            text="X",
+            command=self.master.destroy,
+            **common_options
+        )
         
+        self.close_button.pack(side="right")
         self.after_period_capitalize_button.pack(side="right")
         self.title_button.pack(side="right")
         self.capitalize_button.pack(side="right")
