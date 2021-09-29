@@ -17,15 +17,20 @@ class Application(tk.Frame):
         self.status = True
         self.xposition = None
         self.yposition = None
+        self.uppercase_button_image = tk.PhotoImage(file=utils.get_button_image_path('uppercase_button_image'))
+        self.lowercase_button_image = tk.PhotoImage(file=utils.get_button_image_path('lowercase_button_image'))
+        self.title_button_image = tk.PhotoImage(file=utils.get_button_image_path('title_button_image'))
+        self.capitalize_button_image = tk.PhotoImage(file=utils.get_button_image_path('capitalize_button_image'))
+        self.after_period_capitalize_button_image = tk.PhotoImage(file=utils.get_button_image_path('after_period_capitalize_button_image'))
         self.master.resizable(False, False)
         self.master.attributes("-topmost", True)
         self.master.wm_withdraw()
         self.master.overrideredirect(True)
         self.master.bind("<Motion>", lambda *ignore: self.set_status(True))
         self.master.bind("<Leave>", lambda *ignore: self.set_status(False))
-        self.pack()
         self.create_buttons()
         self.start_thread()
+        self.pack()
 
     def set_status(self, status: bool):
         self.status = status
@@ -87,40 +92,41 @@ class Application(tk.Frame):
 
     def create_buttons(self):
         common_options = dict(
-            borderwidth=0, background="#f4d7d7", activebackground="#e9afaf", anchor="w"
+            borderwidth=0, 
+            anchor="w"
         )
 
         self.title_button = tk.Button(
             self,
-            text="AbC",
+            image=self.title_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.title_converter), 
                 self.set_clicked_button("title_button")),
             **common_options
         )
         self.after_period_capitalize_button = tk.Button(
             self,
-            text="Ab.C",
+            image=self.after_period_capitalize_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.capitalize_after_one_periodconverter),
                 self.set_clicked_button("after_period_capitalize_button")),
             **common_options
         )
         self.uppercase_button = tk.Button(
             self,
-            text="A",
+            image=self.uppercase_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.upper_converter), 
                 self.set_clicked_button("uppercase_button")),
             **common_options
         )
         self.lowercase_button = tk.Button(
             self,
-            text="a",
+            image=self.lowercase_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.lower_converter),
                 self.set_clicked_button("lowercase_button")),
             **common_options
         )
         self.capitalize_button = tk.Button(
             self,
-            text="Ab",
+            image=self.capitalize_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.capitalizer_converter),
                 self.set_clicked_button("capitalize_button")),
             **common_options
