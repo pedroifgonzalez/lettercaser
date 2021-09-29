@@ -107,6 +107,10 @@ def convert_clipboard_content(function: Callable, selected_text=True):
     pyperclip.copy(converted_clipboard_content)
     return True
 
+def call_to_paste():
+    """Simulate ctrl + v combination for pasting"""
+    pyautogui.hotkey('ctrl', 'v')
+
 def get_button_image_path(button_name):
     return f"{PHOTOS_FOLDER_PATH}{os.path.sep}{button_name}.png"
 
