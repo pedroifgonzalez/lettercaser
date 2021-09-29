@@ -12,8 +12,6 @@ class Application(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
-        self.clicked_button = None
-        self.conversion_status = False
         self.status = True
         self.xposition = None
         self.yposition = None
@@ -66,13 +64,6 @@ class Application(tk.Frame):
         thread = threading.Thread(target=to_check, daemon=True)
         thread.start()
 
-    def set_clicked_button(self, button_name):
-        self.clicked_button = getattr(self, button_name)
-    
-    def check_conversion_status(self, converter_function):
-        if converter_function():
-            self.conversion_status = True
-
     def create_buttons(self):
         common_options = dict(
             borderwidth=0,
@@ -84,36 +75,31 @@ class Application(tk.Frame):
         self.title_button = tk.Button(
             self,
             text="AbC",
-            command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.title_converter), 
-                self.set_clicked_button("title_button"), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.title_converter(), utils.call_to_paste()),
             **common_options
         )
         self.after_period_capitalize_button = tk.Button(
             self,
             text="Ab.C",
-            command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.capitalize_after_one_periodconverter),
-                self.set_clicked_button("after_period_capitalize_button"), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.capitalize_after_one_periodconverter(), utils.call_to_paste()),
             **common_options
         )
         self.uppercase_button = tk.Button(
             self,
             text="A",
-            command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.upper_converter), 
-                self.set_clicked_button("uppercase_button"), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.upper_converter(), utils.call_to_paste()),
             **common_options
         )
         self.lowercase_button = tk.Button(
             self,
             text="a",
-            command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.lower_converter),
-                self.set_clicked_button("lowercase_button"), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.lower_converter(), utils.call_to_paste()),
             **common_options
         )
         self.capitalize_button = tk.Button(
             self,
             text="Ab",
-            command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.capitalizer_converter),
-                self.set_clicked_button("capitalize_button"), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.capitalizer_converter(), utils.call_to_paste()),
             **common_options
         )
         self.close_button = tk.Button(
