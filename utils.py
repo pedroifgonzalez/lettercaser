@@ -100,7 +100,7 @@ def concatenate_functions_calls(*functions_calls):
 def convert_clipboard_content(function: Callable, selected_text=True):
     """Retrieves clipboard content, converts it and updates it
     
-    arguments:
+    Args:
 
         function: function to apply to clipboard's content
 
