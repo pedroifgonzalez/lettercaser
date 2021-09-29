@@ -15,6 +15,8 @@ class Application(tk.Frame):
         self.clicked_button = None
         self.conversion_status = False
         self.status = True
+        self.xposition = None
+        self.yposition = None
         self.master.resizable(False, False)
         self.master.attributes("-topmost", True)
         self.master.wm_withdraw()
@@ -37,6 +39,18 @@ class Application(tk.Frame):
                     time.sleep(1)
                     if status == self.status:
                         self.master.wm_withdraw()
+                        self.xposition = None
+                        self.yposition = None
+                        self.status = True
+                
+                if self.xposition and self.yposition:
+                    cursor_position = utils.get_mouse_cursor_position()
+                    xdifference = abs(cursor_position.x - self.xposition)
+                    ydifference = abs(cursor_position.y - self.yposition)
+                    if xdifference > 300 or ydifference > 250:
+                        self.master.wm_withdraw()
+                        self.xposition = None
+                        self.yposition = None
                         self.status = True
                 
                 # detect change of selected text
@@ -45,6 +59,8 @@ class Application(tk.Frame):
                     app_wsize = utils.Size(250, 35)
                     x, y = utils.get_cursor_position_to_set(app_wsize, cursor_position)
                     self.master.geometry(f"+{x}+{y}")
+                    self.xposition = x
+                    self.yposition = y
                     self.master.wm_deiconify()
 
                 # show success
