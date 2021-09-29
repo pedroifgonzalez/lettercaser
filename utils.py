@@ -66,8 +66,6 @@ def get_selected_text():
     """Returns the output of xsel"""
     return subprocess.check_output("xsel", universal_newlines=True)
 
-previous_selected_text = get_selected_text()
-
 def is_selected_text_copied():
     """Returns True if the selected text by the user is currently at the clipboard"""
     current_content = get_selected_text()
@@ -125,6 +123,7 @@ def call_to_paste():
 def get_button_image_path(button_name):
     return f"{PHOTOS_FOLDER_PATH}{os.path.sep}{button_name}.png"
 
+previous_selected_text = get_selected_text()
 upper_converter = functools.partial(convert_clipboard_content, textconverter.to_uppercase)
 lower_converter = functools.partial(convert_clipboard_content, textconverter.to_lowercase)
 title_converter = functools.partial(convert_clipboard_content, textconverter.to_title_case)
