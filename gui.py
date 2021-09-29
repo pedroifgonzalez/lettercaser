@@ -100,35 +100,35 @@ class Application(tk.Frame):
             self,
             image=self.title_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.title_converter), 
-                self.set_clicked_button("title_button")),
+                self.set_clicked_button("title_button"), utils.call_to_paste()),
             **common_options
         )
         self.after_period_capitalize_button = tk.Button(
             self,
             image=self.after_period_capitalize_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.capitalize_after_one_periodconverter),
-                self.set_clicked_button("after_period_capitalize_button")),
+                self.set_clicked_button("after_period_capitalize_button"), utils.call_to_paste()),
             **common_options
         )
         self.uppercase_button = tk.Button(
             self,
             image=self.uppercase_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.upper_converter), 
-                self.set_clicked_button("uppercase_button")),
+                self.set_clicked_button("uppercase_button"), utils.call_to_paste()),
             **common_options
         )
         self.lowercase_button = tk.Button(
             self,
             image=self.lowercase_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.lower_converter),
-                self.set_clicked_button("lowercase_button")),
+                self.set_clicked_button("lowercase_button"), utils.call_to_paste()),
             **common_options
         )
         self.capitalize_button = tk.Button(
             self,
             image=self.capitalize_button_image,
             command=lambda: utils.concatenate_functions_calls(self.check_conversion_status(utils.capitalizer_converter),
-                self.set_clicked_button("capitalize_button")),
+                self.set_clicked_button("capitalize_button"), utils.call_to_paste()),
             **common_options
         )
         
