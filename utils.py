@@ -125,15 +125,9 @@ def call_to_paste():
     """Simulate ctrl + v combination for pasting"""
     pyautogui.hotkey('ctrl', 'v')
 
-def get_button_image_path(button_name):
-    return f"{PHOTOS_FOLDER_PATH}{os.path.sep}{button_name}.png"
-
 previous_selected_text = get_selected_text()
 upper_converter = functools.partial(convert_clipboard_content, textconverter.to_uppercase)
 lower_converter = functools.partial(convert_clipboard_content, textconverter.to_lowercase)
 title_converter = functools.partial(convert_clipboard_content, textconverter.to_title_case)
 capitalizer_converter = functools.partial(convert_clipboard_content, textconverter.capitalize)
 capitalize_after_one_periodconverter = functools.partial(convert_clipboard_content, textconverter.capitalize_after_one_period)
-
-PHOTOS_FOLDER = "design"
-PHOTOS_FOLDER_PATH = f"{os.path.dirname(os.path.abspath(__file__))}{os.path.sep}{PHOTOS_FOLDER}"
