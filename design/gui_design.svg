@@ -26,11 +26,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8"
-     inkscape:cx="276.68649"
-     inkscape:cy="873.24845"
+     inkscape:zoom="4"
+     inkscape:cx="240.22664"
+     inkscape:cy="819.33847"
      inkscape:document-units="mm"
-     inkscape:current-layer="g1203"
+     inkscape:current-layer="g995"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
@@ -143,6 +143,25 @@
              x="174.78566"
              y="28.35042"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#ffffff;fill-opacity:0.98989898;stroke-width:0.15383072">Ab.C</tspan></text>
+        <rect
+           style="fill:#8b0000;fill-opacity:0.57070708;stroke:#000000;stroke-width:0.323;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+           id="rect1015-6"
+           width="9.361227"
+           height="9.7715788"
+           x="191.17616"
+           y="21.187288"
+           ry="1.5493544" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:6.15322876px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.98989898;stroke:none;stroke-width:0.15383074"
+           x="194.0108"
+           y="28.319006"
+           id="text12-35-31-75"><tspan
+             sodipodi:role="line"
+             id="tspan10-62-9-3"
+             x="194.0108"
+             y="28.319006"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#ffffff;fill-opacity:0.98989898;stroke-width:0.15383074">X</tspan></text>
       </g>
       <rect
          ry="0"
@@ -297,6 +316,29 @@
          id="image1236-4"
          x="136.75664"
          y="64.309067" />
+      <g
+         id="g1060"
+         transform="translate(1.8850602,-0.71094755)">
+        <rect
+           ry="1.5493544"
+           y="57.341087"
+           x="189.93234"
+           height="9.7715797"
+           width="9.361227"
+           id="rect1015-6-6"
+           style="fill:#8b0000;fill-opacity:0.57070707;stroke:#000000;stroke-width:0.32300004;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+        <text
+           id="text12-35-31-75-2"
+           y="64.472809"
+           x="192.76697"
+           style="font-style:normal;font-weight:normal;font-size:6.15322876px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.98989898;stroke:none;stroke-width:0.15383074"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#ffffff;fill-opacity:0.98989898;stroke-width:0.15383074"
+             y="64.472809"
+             x="192.76697"
+             id="tspan10-62-9-3-9"
+             sodipodi:role="line">X</tspan></text>
+      </g>
     </g>
     <g
        id="g1554"
@@ -741,9 +783,9 @@
          y="139.72893"
          x="-217.20935"
          height="8.5243702"
-         width="34.0229"
+         width="40.505192"
          id="rect1221-5-8"
-         style="fill:#94caef;fill-opacity:1;stroke:none;stroke-width:0.51699996;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+         style="fill:#94caef;fill-opacity:1;stroke:none;stroke-width:0.56410533;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
       <text
          id="text1219-4-8"
          y="146.11523"
@@ -754,7 +796,7 @@
            y="146.11523"
            x="-217.23741"
            id="tspan1217-7-5"
-           sodipodi:role="line">lorem ipsu</tspan></text>
+           sodipodi:role="line">LOREM IPSU</tspan></text>
       <image
          width="3.3240769"
          height="4.9069705"
@@ -771,7 +813,7 @@
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
       <path
-         style="fill:#000000;fill-opacity:0.57070707;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:#143057;fill-opacity:0.74235809;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m 53.451473,148.48083 -5.817468,-0.0874 c -0.97708,0.0814 -1.170145,0.94082 -1.152601,1.31965 v 6.41446 c 0.01722,0.47051 0.299135,1.21783 1.469982,1.29459 l 5.500087,0.0254 z"
          id="path997"
          inkscape:connector-curvature="0"
@@ -900,7 +942,7 @@
          inkscape:connector-curvature="0"
          id="path997-8-9"
          d="m 77.852418,79.098033 -5.817468,-0.0874 c -0.97708,0.0814 -1.170145,0.94082 -1.152601,1.31965 v 6.41446 c 0.01722,0.47051 0.299135,1.21783 1.469982,1.29459 l 5.500087,0.0254 z"
-         style="fill:#000000;fill-opacity:0.57070707;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:#153158;fill-opacity:0.98823529;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <text
          id="text12-35-31-7-8-2-5-2"
          y="85.936615"
