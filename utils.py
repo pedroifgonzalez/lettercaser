@@ -22,7 +22,7 @@ import pyperclip
 import pyautogui
 from typing import Callable
 
-import textconverter
+import lettercaser
 
 Size = collections.namedtuple("Size", "width height")
 Point = collections.namedtuple("Point", "x y")
@@ -126,8 +126,8 @@ def call_to_paste():
     pyautogui.hotkey('ctrl', 'v')
 
 previous_selected_text = get_selected_text()
-upper_converter = functools.partial(convert_clipboard_content, textconverter.to_uppercase)
-lower_converter = functools.partial(convert_clipboard_content, textconverter.to_lowercase)
-title_converter = functools.partial(convert_clipboard_content, textconverter.to_title_case)
-capitalizer_converter = functools.partial(convert_clipboard_content, textconverter.capitalize)
-capitalize_after_one_periodconverter = functools.partial(convert_clipboard_content, textconverter.capitalize_after_one_period)
+upper_converter = functools.partial(convert_clipboard_content, lettercaser.to_uppercase)
+lower_converter = functools.partial(convert_clipboard_content, lettercaser.to_lowercase)
+title_converter = functools.partial(convert_clipboard_content, lettercaser.to_title_case)
+capitalizer_converter = functools.partial(convert_clipboard_content, lettercaser.capitalize)
+capitalize_after_one_periodconverter = functools.partial(convert_clipboard_content, lettercaser.capitalize_after_one_period)
