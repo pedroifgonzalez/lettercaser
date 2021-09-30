@@ -68,8 +68,10 @@ class Application(tk.Frame):
         common_options = dict(
             borderwidth=0,
             anchor="w",
-            background="#f4d7d7",
-            activebackground="#e9afaf"
+            background="#4f6481",
+            activebackground="#153158",
+            foreground="white",
+            activeforeground="white"
         )
 
         self.title_button = tk.Button(
@@ -106,7 +108,12 @@ class Application(tk.Frame):
             self,
             text="X",
             command=self.master.destroy,
-            activebackground="#fd5454"
+            borderwidth=0,
+            anchor="w",
+            foreground="white",
+            activebackground="#fd5454",
+            background="#fd5454",
+            activeforeground="white"
         )
         
         self.close_button.pack(side="right")
