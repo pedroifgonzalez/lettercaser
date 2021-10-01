@@ -1,4 +1,4 @@
-# Select a text and letter case it!
+# ![Alt](https://github.com/pedroifgonzalez/lettercaser/blob/master/design/social_preview.png)
 
 A simple widget app that provides some shortcuts of common letter cases:
 
