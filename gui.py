@@ -27,7 +27,7 @@ class Application(tk.Frame):
 
     def set_status(self, status: bool):
         self.status = status
-
+    
     def hide(self):
         self.master.wm_withdraw()
         self.xposition = None
@@ -42,20 +42,14 @@ class Application(tk.Frame):
                 if status is False:
                     time.sleep(1)
                     if status == self.status:
-                        self.master.wm_withdraw()
-                        self.xposition = None
-                        self.yposition = None
-                        self.status = True
+                        self.hide()
                 
                 if self.xposition and self.yposition:
                     cursor_position = utils.get_mouse_cursor_position()
                     xdifference = abs(cursor_position.x - self.xposition)
                     ydifference = abs(cursor_position.y - self.yposition)
                     if xdifference > 300 or ydifference > 250:
-                        self.master.wm_withdraw()
-                        self.xposition = None
-                        self.yposition = None
-                        self.status = True
+                        self.hide()
                 
                 # detect change of selected text
                 if utils.detect_selected_text_changed():
@@ -83,31 +77,32 @@ class Application(tk.Frame):
         self.title_button = tk.Button(
             self,
             text="AbC",
-            command=lambda: utils.concatenate_functions_calls(utils.title_converter(), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.title_converter(), utils.call_to_paste(), self.hide()),
             **common_options
         )
         self.after_period_capitalize_button = tk.Button(
             self,
             text="Ab.C",
-            command=lambda: utils.concatenate_functions_calls(utils.capitalize_after_one_periodconverter(), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.capitalize_after_one_periodconverter(), utils.call_to_paste(),
+                self.hide()),
             **common_options
         )
         self.uppercase_button = tk.Button(
             self,
             text="A",
-            command=lambda: utils.concatenate_functions_calls(utils.upper_converter(), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.upper_converter(), utils.call_to_paste(), self.hide()),
             **common_options
         )
         self.lowercase_button = tk.Button(
             self,
             text="a",
-            command=lambda: utils.concatenate_functions_calls(utils.lower_converter(), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.lower_converter(), utils.call_to_paste(), self.hide()),
             **common_options
         )
         self.capitalize_button = tk.Button(
             self,
             text="Ab",
-            command=lambda: utils.concatenate_functions_calls(utils.capitalizer_converter(), utils.call_to_paste()),
+            command=lambda: utils.concatenate_functions_calls(utils.capitalizer_converter(), utils.call_to_paste(), self.hide()),
             **common_options
         )
         self.close_button = tk.Button(
