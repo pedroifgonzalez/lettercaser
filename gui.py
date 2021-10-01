@@ -28,6 +28,12 @@ class Application(tk.Frame):
     def set_status(self, status: bool):
         self.status = status
 
+    def hide(self):
+        self.master.wm_withdraw()
+        self.xposition = None
+        self.yposition = None
+        self.status = True
+        
     def start_thread(self):
         def to_check():
             while True:
