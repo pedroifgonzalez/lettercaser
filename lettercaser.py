@@ -1,53 +1,61 @@
-#!usr/bin/python3    
+#!usr/bin/python3
 """Module for transformings text to different formats using str built-in methods
 """
 
-def to_uppercase(text: str)-> str:
+
+def to_uppercase(text: str) -> str:
     """Converts to uppercase
-    
+
     >>> to_uppercase("word")
     'WORD'
     """
     return text.upper()
 
-def to_lowercase(text: str)-> str:
+
+def to_lowercase(text: str) -> str:
     """Converts to lowercase
-    
+
     >>> to_lowercase("All Words WERE converted to lower")
     'all words were converted to lower'
     """
     return text.lower()
 
-def to_title_case(text: str)-> str:
+
+def to_title_case(text: str) -> str:
     """Converts to title case
-    
+
     >>> to_title_case("you got a title case")
     'You Got A Title Case'
     """
     return text.title()
 
-def capitalize(text: str)-> str:
+
+def capitalize(text: str) -> str:
     """Capitalize text
-    
+
     >>> capitalize("initial letter is written in uppercase")
     'Initial letter is written in uppercase'
     """
     return text.capitalize()
 
-def capitalize_after_one_period(text: str)-> str:
+
+def capitalize_after_one_period(text: str) -> str:
     """Capitalize text after every one period
-    
-    This function will remove any leading and trailing whitespace except for sentences between 
+
+    This function will remove any leading and trailing whitespace except for sentences between
     three periods (...)
 
     >>> capitalize_after_one_period("initial letter is written in uppercase after a period too. remember that...")
     'Initial letter is written in uppercase after a period too. Remember that...'
+
+    >>> capitalize_after_one_period("it was dark... I didn't think the light was coming... what a surprise when it did.")
+    "It was dark... I didn't think the light was coming... what a surprise when it did."
     """
     three_period_separated_sentences = text.split("...")
     all_sentences = []
     for three_period_sentence in three_period_separated_sentences:
         sentences = three_period_sentence.split(".")
-        if len(sentences)>1:
+        if len(sentences) > 1:
             capitalized_sentences = []
             capitalized_sentences.append(sentences[0])
             for sentence in sentences[1:]:
@@ -56,8 +64,18 @@ def capitalize_after_one_period(text: str)-> str:
         else:
             all_sentences.append(sentences[0])
 
+    first_letter = all_sentences[0][0]
+    first_letter_capitalized = first_letter.capitalize()
+    first_sentence_left = all_sentences[0][1:]
+    first_sentence_capitalized = "".join(
+        [first_letter_capitalized, first_sentence_left]
+    )
+    all_sentences[0] = first_sentence_capitalized
+
     return "...".join(all_sentences)
+
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
