@@ -59,6 +59,5 @@ def capitalize_after_one_period(text: str)-> str:
     return "...".join(all_sentences)
 
 if __name__ == "__main__":
-    print(capitalize_after_one_period("dfdfs... dsfdf.sdfsdf. dfgdfgdfg... hello"))
-    # import doctest
-    # doctest.testmod()
+    import doctest
+    doctest.testmod()
