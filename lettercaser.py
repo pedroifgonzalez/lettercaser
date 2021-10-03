@@ -47,11 +47,18 @@ def capitalize_after_one_period(text: str)-> str:
     all_sentences = []
     for three_period_sentence in three_period_separated_sentences:
         sentences = three_period_sentence.split(".")
-        capitalized_sentences = [sentence.strip().capitalize() for sentence in sentences]
-        all_sentences.append(". ".join(capitalized_sentences).rstrip())
+        if len(sentences)>1:
+            capitalized_sentences = []
+            capitalized_sentences.append(sentences[0])
+            for sentence in sentences[1:]:
+                capitalized_sentences.append(sentence.strip().capitalize())
+            all_sentences.append(". ".join(capitalized_sentences).rstrip())
+        else:
+            all_sentences.append(sentences[0])
 
     return "...".join(all_sentences)
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    print(capitalize_after_one_period("dfdfs... dsfdf.sdfsdf. dfgdfgdfg... hello"))
+    # import doctest
+    # doctest.testmod()
