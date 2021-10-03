@@ -9,6 +9,7 @@ A simple widget app that provides some shortcuts of common letter cases:
 - Capitalize after every period except "..."
 
 Future improvements:
+
     - Add a tooltip for clarifying a button's letter case function.
     - Detect more accuractely when user selects or not a text.
     - Refactor code for better comprhension and usage of built-in components.
