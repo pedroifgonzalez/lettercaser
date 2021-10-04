@@ -16,6 +16,13 @@ Future improvements:
 
 **For developers:**
 
+Set work environment:
+
+    - git clone https://github.com/pedroifgonzalez/lettercaser.git
+    - virtualenv venv -p python3
+    - source venv/bin/activate
+    - pip install -r requirements.txt
+
 1. Third-Party libraries used:
     - pyperclip
     - pyautogui
