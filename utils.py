@@ -13,7 +13,7 @@
         convert_clipoboard_content
         call_to_paste
 """
-import os
+import lettercaser
 import subprocess
 import collections
 import logging
@@ -22,7 +22,6 @@ import pyperclip
 import pyautogui
 from typing import Callable
 
-import lettercaser
 
 Size = collections.namedtuple("Size", "width height")
 Point = collections.namedtuple("Point", "x y")
