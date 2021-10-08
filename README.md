@@ -6,7 +6,6 @@ A simple widget app that provides some shortcuts of common letter cases:
 - Lowercase
 - Capitalize
 - Title
-- Capitalize after every period except "..."
 
 Future improvements:
 
