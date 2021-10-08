@@ -80,13 +80,13 @@ class Application(tk.Frame):
             command=lambda: utils.concatenate_functions_calls(utils.title_converter(), utils.call_to_paste(), self.hide()),
             **common_options
         )
-        self.after_period_capitalize_button = tk.Button(
-            self,
-            text="Ab.C",
-            command=lambda: utils.concatenate_functions_calls(utils.capitalize_after_one_periodconverter(), utils.call_to_paste(),
-                self.hide()),
-            **common_options
-        )
+        # self.after_period_capitalize_button = tk.Button(
+        #     self,
+        #     text="Ab.C",
+        #     command=lambda: utils.concatenate_functions_calls(utils.capitalize_after_one_periodconverter(), utils.call_to_paste(),
+        #         self.hide()),
+        #     **common_options
+        # )
         self.uppercase_button = tk.Button(
             self,
             text="A",
@@ -118,7 +118,7 @@ class Application(tk.Frame):
         )
         
         self.close_button.pack(side="right")
-        self.after_period_capitalize_button.pack(side="right")
+        # self.after_period_capitalize_button.pack(side="right")
         self.title_button.pack(side="right")
         self.capitalize_button.pack(side="right")
         self.lowercase_button.pack(side="right")
