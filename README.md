@@ -22,6 +22,10 @@ Set work environment:
     - source venv/bin/activate
     - pip install -r requirements.txt
 
+Run:
+
+    python3 gui.py
+
 1. Third-Party libraries used:
     - pyperclip
     - pyautogui
