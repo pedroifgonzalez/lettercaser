@@ -1,7 +1,7 @@
 #!usr/bin/python3
 """Module for transformings text to different formats using str built-in methods
 """
-
+import string
 
 def to_uppercase(text: str) -> str:
     """Converts to uppercase
@@ -42,38 +42,27 @@ def capitalize(text: str) -> str:
 def capitalize_after_one_period(text: str) -> str:
     """Capitalize text after every one period
 
-    This function will remove any leading and trailing whitespace except for sentences between
-    three periods (...)
-
     >>> capitalize_after_one_period("initial letter is written in uppercase after a period too. remember that...")
     'Initial letter is written in uppercase after a period too. Remember that...'
 
     >>> capitalize_after_one_period("it was dark... I didn't think the light was coming... what a surprise when it did.")
     "It was dark... I didn't think the light was coming... what a surprise when it did."
     """
-    three_period_separated_sentences = text.split("...")
-    all_sentences = []
-    for three_period_sentence in three_period_separated_sentences:
-        sentences = three_period_sentence.split(".")
-        if len(sentences) > 1:
-            capitalized_sentences = []
-            capitalized_sentences.append(sentences[0])
-            for sentence in sentences[1:]:
-                capitalized_sentences.append(sentence.strip().capitalize())
-            all_sentences.append(". ".join(capitalized_sentences).rstrip())
-        else:
-            all_sentences.append(sentences[0])
+    count = 0
+    output = []
+    for char in text:
+        char_to_output = char
+        if char == ".":
+            count += 1
+        if char in string.ascii_letters:
+            if count==1:
+                char_to_output = char_to_output.upper()
+            count = 0
+        output.append(char_to_output)
 
-    first_letter = all_sentences[0][0]
-    first_letter_capitalized = first_letter.capitalize()
-    first_sentence_left = all_sentences[0][1:]
-    first_sentence_capitalized = "".join(
-        [first_letter_capitalized, first_sentence_left]
-    )
-    all_sentences[0] = first_sentence_capitalized
+    output[0] = output[0].upper()
 
-    return "...".join(all_sentences)
-
+    return "".join(output)
 
 if __name__ == "__main__":
     import doctest
