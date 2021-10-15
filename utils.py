@@ -12,8 +12,9 @@
         concatenate_functions_calls
         convert_clipoboard_content
         call_to_paste
+        is_first_use
 """
-import lettercaser
+import os
 import subprocess
 import collections
 import logging
@@ -21,6 +22,7 @@ import functools
 import pyperclip
 import pyautogui
 from typing import Callable
+import lettercaser
 
 
 Size = collections.namedtuple("Size", "width height")
@@ -123,6 +125,18 @@ def convert_clipboard_content(function: Callable, selected_text=True):
 def call_to_paste():
     """Simulate ctrl + v combination for pasting"""
     pyautogui.hotkey('ctrl', 'v')
+
+def is_first_use():
+    """Determines if is the first time the app is run"""
+    file_dir_path = __file__.rsplit(os.path.sep, 1)[0]
+    pycache_dir_path = file_dir_path + os.path.sep + "__pycache__"
+    try:
+        for file_name in os.listdir(pycache_dir_path):
+            if "gui" in file_name:
+                return False
+    except FileNotFoundError:
+        pass
+    return True
 
 previous_selected_text = get_selected_text()
 upper_converter = functools.partial(convert_clipboard_content, lettercaser.to_uppercase)
