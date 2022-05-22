@@ -1,5 +1,7 @@
 #!usr/bin/python3
-"""Module for transformings text to different formats using str built-in methods
+"""
+    Module for transformings
+    text to different formats using str built-in methods
 """
 import string
 
