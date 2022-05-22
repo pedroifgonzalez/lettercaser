@@ -50,7 +50,7 @@ def capitalize_after_one_period(text: str) -> str:
     """
     count = 0
     output = []
-    for char in text:
+    for char in text.lower():
         char_to_output = char
         if char == ".":
             count += 1
