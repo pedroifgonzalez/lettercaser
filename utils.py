@@ -140,8 +140,12 @@ def call_to_paste():
 
 
 previous_selected_text = get_selected_text()
-upper_converter = functools.partial(convert_clipboard_content, lettercaser.to_uppercase)
-lower_converter = functools.partial(convert_clipboard_content, lettercaser.to_lowercase)
+upper_converter = functools.partial(
+    convert_clipboard_content, lettercaser.to_uppercase
+)
+lower_converter = functools.partial(
+    convert_clipboard_content, lettercaser.to_lowercase
+)
 title_converter = functools.partial(
     convert_clipboard_content, lettercaser.to_title_case
 )
