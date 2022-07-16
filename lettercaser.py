@@ -5,6 +5,7 @@
 """
 import string
 
+
 def to_uppercase(text: str) -> str:
     """Converts to uppercase
 
@@ -57,7 +58,7 @@ def capitalize_after_one_period(text: str) -> str:
         if char == ".":
             count += 1
         if char in string.ascii_letters:
-            if count==1:
+            if count == 1:
                 char_to_output = char_to_output.upper()
             count = 0
         output.append(char_to_output)
@@ -65,6 +66,7 @@ def capitalize_after_one_period(text: str) -> str:
     output[0] = output[0].upper()
 
     return "".join(output)
+
 
 if __name__ == "__main__":
     import doctest

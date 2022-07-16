@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-    App GUI module 
+    App GUI module
 """
 import threading
 import time
 import tkinter as tk
+
 import utils
 
 
@@ -27,13 +28,13 @@ class Application(tk.Frame):
 
     def set_status(self, status: bool):
         self.status = status
-    
+
     def hide(self):
         self.master.wm_withdraw()
         self.xposition = None
         self.yposition = None
         self.status = True
-        
+
     def start_thread(self):
         def to_check():
             while True:
@@ -43,14 +44,14 @@ class Application(tk.Frame):
                     time.sleep(1)
                     if status == self.status:
                         self.hide()
-                
+
                 if self.xposition and self.yposition:
                     cursor_position = utils.get_mouse_cursor_position()
                     xdifference = abs(cursor_position.x - self.xposition)
                     ydifference = abs(cursor_position.y - self.yposition)
                     if xdifference > 300 or ydifference > 250:
                         self.hide()
-                
+
                 # detect change of selected text
                 if utils.detect_selected_text_changed():
                     cursor_position = utils.get_mouse_cursor_position()
@@ -71,39 +72,50 @@ class Application(tk.Frame):
             background="#4f6481",
             activebackground="#153158",
             foreground="white",
-            activeforeground="white"
+            activeforeground="white",
         )
 
         self.title_button = tk.Button(
             self,
             text="AbC",
-            command=lambda: utils.concatenate_functions_calls(utils.title_converter(), utils.call_to_paste(), self.hide()),
-            **common_options
+            command=lambda: utils.concatenate_functions_calls(
+                utils.title_converter(), utils.call_to_paste(), self.hide()
+            ),
+            **common_options,
         )
         self.after_period_capitalize_button = tk.Button(
             self,
             text="Ab.C",
-            command=lambda: utils.concatenate_functions_calls(utils.capitalize_after_one_periodconverter(), utils.call_to_paste(),
-                self.hide()),
-            **common_options
+            command=lambda: utils.concatenate_functions_calls(
+                utils.capitalize_after_one_periodconverter(),
+                utils.call_to_paste(),
+                self.hide(),
+            ),
+            **common_options,
         )
         self.uppercase_button = tk.Button(
             self,
             text="A",
-            command=lambda: utils.concatenate_functions_calls(utils.upper_converter(), utils.call_to_paste(), self.hide()),
-            **common_options
+            command=lambda: utils.concatenate_functions_calls(
+                utils.upper_converter(), utils.call_to_paste(), self.hide()
+            ),
+            **common_options,
         )
         self.lowercase_button = tk.Button(
             self,
             text="a",
-            command=lambda: utils.concatenate_functions_calls(utils.lower_converter(), utils.call_to_paste(), self.hide()),
-            **common_options
+            command=lambda: utils.concatenate_functions_calls(
+                utils.lower_converter(), utils.call_to_paste(), self.hide()
+            ),
+            **common_options,
         )
         self.capitalize_button = tk.Button(
             self,
             text="Ab",
-            command=lambda: utils.concatenate_functions_calls(utils.capitalizer_converter(), utils.call_to_paste(), self.hide()),
-            **common_options
+            command=lambda: utils.concatenate_functions_calls(
+                utils.capitalizer_converter(), utils.call_to_paste(), self.hide()
+            ),
+            **common_options,
         )
         self.close_button = tk.Button(
             self,
@@ -114,9 +126,9 @@ class Application(tk.Frame):
             foreground="white",
             activebackground="#fd5454",
             background="#fd5454",
-            activeforeground="white"
+            activeforeground="white",
         )
-        
+
         self.close_button.pack(side="right")
         self.after_period_capitalize_button.pack(side="right")
         self.title_button.pack(side="right")
