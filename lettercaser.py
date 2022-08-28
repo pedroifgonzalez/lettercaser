@@ -53,12 +53,12 @@ def capitalize_after_one_period(text: str) -> str:
     """
     count = 0
     output = []
-    for char in text.lower():
+    for pos, char in enumerate(text.lower()):
         char_to_output = char
         if char == ".":
             count += 1
         if char in string.ascii_letters:
-            if count == 1:
+            if count == 1 or text[pos] == char.upper():
                 char_to_output = char_to_output.upper()
             count = 0
         output.append(char_to_output)
