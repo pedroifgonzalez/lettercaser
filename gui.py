@@ -34,8 +34,18 @@ class Application(tk.Frame):
         self.xposition = None
         self.yposition = None
         self.status = True
+    
+    def update_gui(self):
+        cursor_position = utils.get_mouse_cursor_position()
+        app_wsize = utils.Size(250, 35)
+        x_pos, y_pos = utils.get_cursor_position_to_set(app_wsize, cursor_position)
+        self.master.geometry(f"+{x_pos}+{y_pos}")
+        self.xposition = x_pos
+        self.yposition = y_pos
+        self.master.wm_deiconify()
 
     def start_thread(self):
+        """Start thread to check the clipboard content"""
         def to_check():
             while True:
                 # to hide the app
@@ -54,18 +64,13 @@ class Application(tk.Frame):
 
                 # detect change of selected text
                 if utils.detect_selected_text_changed():
-                    cursor_position = utils.get_mouse_cursor_position()
-                    app_wsize = utils.Size(250, 35)
-                    x, y = utils.get_cursor_position_to_set(app_wsize, cursor_position)
-                    self.master.geometry(f"+{x}+{y}")
-                    self.xposition = x
-                    self.yposition = y
-                    self.master.wm_deiconify()
+                    self.update_gui()
 
         thread = threading.Thread(target=to_check, daemon=True)
         thread.start()
 
     def create_buttons(self):
+        """Create buttons options"""
         common_options = dict(
             borderwidth=0,
             anchor="w",
