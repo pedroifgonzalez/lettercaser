@@ -140,9 +140,3 @@ class Application(tk.Frame):
         self.capitalize_button.pack(side="right")
         self.lowercase_button.pack(side="right")
         self.uppercase_button.pack(side="right")
-
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = Application(master=root)
-    app.mainloop()
