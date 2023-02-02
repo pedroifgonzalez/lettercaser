@@ -6,7 +6,7 @@ import threading
 import time
 import tkinter as tk
 
-import utils
+import lettercaser.utils as utils
 
 
 class Application(tk.Frame):
