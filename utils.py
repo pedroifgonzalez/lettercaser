@@ -126,10 +126,7 @@ def convert_clipboard_content(function: Callable, selected_text=True):
     if selected_text:
         pyperclip.copy(get_selected_text())
     original_clipboard_content = pyperclip.paste()
-    try:
-        converted_clipboard_content = function(original_clipboard_content)
-    except Exception as e:
-        raise e
+    converted_clipboard_content = function(original_clipboard_content)
     pyperclip.copy(converted_clipboard_content)
     return True
 
