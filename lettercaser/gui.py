@@ -6,7 +6,7 @@ import threading
 import time
 import tkinter as tk
 
-import lettercaser.utils as utils
+from lettercaser import utils
 
 
 class Application(tk.Frame):
@@ -34,7 +34,7 @@ class Application(tk.Frame):
         self.xposition = None
         self.yposition = None
         self.status = True
-    
+
     def update_gui(self):
         cursor_position = utils.get_mouse_cursor_position()
         app_wsize = utils.Size(250, 35)
@@ -46,6 +46,7 @@ class Application(tk.Frame):
 
     def start_thread(self):
         """Start thread to check the clipboard content"""
+
         def to_check():
             while True:
                 # to hide the app
@@ -57,10 +58,11 @@ class Application(tk.Frame):
 
                 if self.xposition and self.yposition:
                     cursor_position = utils.get_mouse_cursor_position()
-                    xdifference = abs(cursor_position.x - self.xposition)
-                    ydifference = abs(cursor_position.y - self.yposition)
-                    if xdifference > 300 or ydifference > 250:
-                        self.hide()
+                    if cursor_position.x and cursor_position.y:
+                        xdifference = abs(cursor_position.x - self.xposition)
+                        ydifference = abs(cursor_position.y - self.yposition)
+                        if xdifference > 300 or ydifference > 250:
+                            self.hide()
 
                 # detect change of selected text
                 if utils.detect_selected_text_changed():

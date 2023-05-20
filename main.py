@@ -1,6 +1,6 @@
 import tkinter as tk
 
-import lettercaser.gui as gui
+from lettercaser import gui
 
 
 if __name__ == "__main__":
