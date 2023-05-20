@@ -22,11 +22,11 @@ Set work environment:
     - virtualenv venv -p python3
     - source venv/bin/activate
     - pip install -r requirements.txt
-    - pytest --doctest-modules
+    - python -m doctest -v lettercaser/lettercases.py; 
 
 Run:
 
-    python3 gui.py
+    python gui.py
 
 1. Third-Party libraries used:
     - pyperclip
