@@ -58,7 +58,14 @@ class Application(tk.Frame):
 
                 if self.xposition and self.yposition:
                     cursor_position = utils.get_mouse_cursor_position()
-                    if cursor_position.x and cursor_position.y:
+                    if all(
+                        [
+                            cursor_position.x,
+                            cursor_position.y,
+                            self.xposition,
+                            self.yposition,
+                        ]
+                    ):
                         xdifference = abs(cursor_position.x - self.xposition)
                         ydifference = abs(cursor_position.y - self.yposition)
                         if xdifference > 500 or ydifference > 550:
@@ -132,6 +139,14 @@ class Application(tk.Frame):
             ),
             **common_options,
         )
+        self.branch_to_pr_button = tk.Button(
+            self,
+            text="f/a-b",
+            command=lambda: utils.concatenate_functions_calls(
+                utils.branch_to_pr(), utils.call_to_paste(), self.hide()
+            ),
+            **common_options,
+        )
         self.close_button = tk.Button(
             self,
             text="X",
@@ -151,3 +166,4 @@ class Application(tk.Frame):
         self.lowercase_button.pack(side="right")
         self.uppercase_button.pack(side="right")
         self.hyphen_button.pack(side="right")
+        self.branch_to_pr_button.pack(side="right")
