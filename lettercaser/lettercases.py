@@ -83,6 +83,26 @@ def hyphen_case(text: str) -> str:
     return text.replace(" ", "-")
 
 
+def branch_to_pr(text: str):
+    """Convert git branch notation to a more readable PR title
+
+    Args:
+        text (str): text target
+
+    >>> branch_to_pr("flex-7/feature")
+    'FLEX-7 Feature'
+    >>> branch_to_pr("flex-10/feature-important")
+    'FLEX-10 Feature important'
+    """
+    try:
+        issue, topic = text.split("/")
+        issue = issue.upper()
+        topic = topic.capitalize().replace("-", " ")
+        return " ".join((issue, topic))
+    except ValueError:
+        return text
+
+
 if __name__ == "__main__":
     import doctest
 
