@@ -61,7 +61,7 @@ class Application(tk.Frame):
                     if cursor_position.x and cursor_position.y:
                         xdifference = abs(cursor_position.x - self.xposition)
                         ydifference = abs(cursor_position.y - self.yposition)
-                        if xdifference > 300 or ydifference > 250:
+                        if xdifference > 500 or ydifference > 550:
                             self.hide()
 
                 # detect change of selected text
@@ -116,6 +116,14 @@ class Application(tk.Frame):
             ),
             **common_options,
         )
+        self.hyphen_button = tk.Button(
+            self,
+            text="a-b",
+            command=lambda: utils.concatenate_functions_calls(
+                utils.hyphen_converter(), utils.call_to_paste(), self.hide()
+            ),
+            **common_options,
+        )
         self.capitalize_button = tk.Button(
             self,
             text="Ab",
@@ -142,3 +150,4 @@ class Application(tk.Frame):
         self.capitalize_button.pack(side="right")
         self.lowercase_button.pack(side="right")
         self.uppercase_button.pack(side="right")
+        self.hyphen_button.pack(side="right")
