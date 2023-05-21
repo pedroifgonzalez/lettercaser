@@ -139,6 +139,7 @@ def call_to_paste():
 previous_selected_text = get_selected_text()
 upper_converter = functools.partial(convert_clipboard_content, lettercases.to_uppercase)
 lower_converter = functools.partial(convert_clipboard_content, lettercases.to_lowercase)
+hyphen_converter = functools.partial(convert_clipboard_content, lettercases.hyphen_case)
 title_converter = functools.partial(
     convert_clipboard_content, lettercases.to_title_case
 )

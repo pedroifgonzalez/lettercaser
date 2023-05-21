@@ -68,6 +68,21 @@ def capitalize_after_one_period(text: str) -> str:
     return "".join(output)
 
 
+def hyphen_case(text: str) -> str:
+    """Replace spaces with hyphens
+
+    Args:
+        text (str): text target
+
+    Returns:
+        str: text modified
+
+    >>> hyphen_case("initial letter is written in uppercase")
+    'initial-letter-is-written-in-uppercase'
+    """
+    return text.replace(" ", "-")
+
+
 if __name__ == "__main__":
     import doctest
 
