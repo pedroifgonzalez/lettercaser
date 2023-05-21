@@ -68,7 +68,7 @@ class Application(tk.Frame):
                     ):
                         xdifference = abs(cursor_position.x - self.xposition)
                         ydifference = abs(cursor_position.y - self.yposition)
-                        if xdifference > 500 or ydifference > 550:
+                        if xdifference > 500 or ydifference > 100:
                             self.hide()
 
                 # detect change of selected text
